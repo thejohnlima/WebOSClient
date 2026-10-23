@@ -8,6 +8,7 @@ import Foundation
 public struct WebOSRequestManifest: Codable {
     var appVersion: String = "1.1"
     var manifestVersion: Int = 1
+
     var permissions: [String] = [
         "LAUNCH",
         "LAUNCH_WEBAPP",
@@ -62,6 +63,17 @@ public struct WebOSRequestManifest: Codable {
         "CONTROL_TV_POWER",
         "CONTROL_WOL",
     ]
-    var signatures: [WebOSRequestSignature] = [WebOSRequestSignature()]
-    var signed: WebOSRequestSigned = WebOSRequestSigned()
+
+    var signatures: [WebOSRequestSignature]?
+    var signed: WebOSRequestSigned?
+
+    init(unsigned: Bool = false) {
+        if unsigned {
+            signatures = nil
+            signed = nil
+        } else {
+            signatures = [WebOSRequestSignature()]
+            signed = WebOSRequestSigned()
+        }
+    }
 }
