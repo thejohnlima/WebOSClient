@@ -10,9 +10,9 @@ public enum WebOSTarget {
     /// Registers the client with an optional client key.
     /// - Parameters:
     ///   - pairingType: The optional pairing type option either set to .prompt or .pin, default value is .prompt.
-    ///   - signed: Whether to omit the legacy signed manifest.
+    ///   - manifest: Custom manifest.
     ///   - clientKey: An optional key used for client registration. If nil, the TV screen will display a prompt or pin for registration.
-    case register(pairingType: WebOSPairingType = .prompt, signed: Bool = true, clientKey: String? = nil)
+    case register(pairingType: WebOSPairingType = .prompt, manifest: WebOSRequestManifest? = nil, clientKey: String? = nil)
 
     /// Sets the PIN code for pairing with the TV.
     /// - Parameter pin: The PIN code displayed on the TV for pairing.
