@@ -85,10 +85,10 @@ extension WebOSTarget: WebOSTargetProtocol {
 
     public var request: WebOSRequest {
         switch self {
-        case .register(let pairingType, let unsigned, let clientKey):
+        case .register(let pairingType, let signed, let clientKey):
             let payload = WebOSRequestPayload(
                 forcePairing: false,
-                manifest: WebOSRequestManifest(unsigned: unsigned),
+                manifest: WebOSRequestManifest(unsigned: !signed),
                 pairingType: pairingType.rawValue,
                 clientKey: clientKey
             )
