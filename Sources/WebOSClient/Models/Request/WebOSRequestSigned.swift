@@ -40,4 +40,8 @@ public struct WebOSRequestSigned: Codable {
 
     public var serial: String = "2f930e2d2cfe083771f68e4fe7bb07"
     public var vendorId: String = "com.lge"
+
+    public init() {
+        // No implementation required
+    }
 }
